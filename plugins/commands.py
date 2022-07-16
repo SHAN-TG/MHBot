@@ -42,7 +42,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         await message.reply_sticker(
-            sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE"         
+            sticker="CAACAgIAAxkBAAEFSkRi0jcSIf2Xbx18syhDGnlavGL35QACVBYAAtB7QUn8uVjZ80ZWKCkE"         
         )
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
@@ -67,14 +67,14 @@ async def start(client, message):
             except (IndexError, ValueError):
                 btn.append([InlineKeyboardButton("🔁 ᴛʀʏ ᴀɢᴀɪɴ 🔁", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_sticker(
-            sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE",
+            sticker="CAACAgIAAxkBAAEFSkZi0jdCuWQUNIuNTRotiuYgyNbeDAAC5hcAAvP2gUnUb8mtTJzF0SkE",
             chat_id=message.from_user.id,
             reply_markup=InlineKeyboardMarkup(btn)
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         await message.reply_sticker(
-            sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE"      
+            sticker="CAACAgIAAxkBAAEFSkZi0jdCuWQUNIuNTRotiuYgyNbeDAAC5hcAAvP2gUnUb8mtTJzF0SkE"      
         )
         return
     data = message.command[1]
