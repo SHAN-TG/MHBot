@@ -860,7 +860,7 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
-        k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption="Please Check spelling", reply_markup=InlineKeyboardMarkup(btn))    
+        k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
         await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
@@ -871,7 +871,7 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]
-    k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption="<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക\n✯ അല്ലാത്ത പക്ഷം <u>Instruction</u> ബട്ടനിൽ ക്ലിക്ക് ചെയ്യുക...</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖️➖️➖️\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n✯ ᴏʀ ᴄʟɪᴄᴋ<u>INSTRUCTION</u> ʙᴜᴛᴛᴏɴ\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ </b>",
+    k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT,
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(60)
     await k.delete()
