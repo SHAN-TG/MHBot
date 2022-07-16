@@ -42,8 +42,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         await message.reply_sticker(
-            sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE",         
-            parse_mode='html'
+            sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE"         
         )
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
@@ -70,14 +69,12 @@ async def start(client, message):
         await client.send_sticker(
             sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE",
             chat_id=message.from_user.id,
-            reply_markup=InlineKeyboardMarkup(btn),
-            parse_mode="markdown"
+            reply_markup=InlineKeyboardMarkup(btn)
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         await message.reply_sticker(
-            sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE",         
-            parse_mode='html'
+            sticker="CAACAgIAAxkBAAEFRKdiz6a_0Yb5A5JD36mGiiMfem1l9wAC4xAAAqch4EmHTbt5tPu_XykE"      
         )
         return
     data = message.command[1]
