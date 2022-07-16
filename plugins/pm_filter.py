@@ -817,7 +817,7 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
-        k=await msg.reply_text(text=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
+        k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
         await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
@@ -852,7 +852,7 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
-        k=await msg.reply_sticker(sticker="CAACAgUAAxkBAAEFSmFi0krJtlv7e3KJ1jNgNYECZqCOzgACnQIAAidd4VQhDKpUqniOjikE", reply_markup=InlineKeyboardMarkup(btn))    
+        k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption="Please Check spelling", reply_markup=InlineKeyboardMarkup(btn))    
         await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
@@ -863,7 +863,7 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]
-    k=await msg.reply_sticker(sticker="CAACAgUAAxkBAAEFSmFi0krJtlv7e3KJ1jNgNYECZqCOzgACnQIAAidd4VQhDKpUqniOjikE",
+    k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption="hai"
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(10)
     await k.delete()
