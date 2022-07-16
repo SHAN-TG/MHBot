@@ -128,14 +128,14 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("⚠️ Bʀᴏ ꜱᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ ғɪʟᴇ . Dᴏɴ'ᴛ ʀᴇǫᴜᴇꜱᴛ ᴏᴛʜᴇʀꜱ ғɪʟᴇ 😩", show_alert=True)
+        return await query.answer("Not For You 😒", show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
     if not movies:
-        return await query.answer("Aʜʜ... Bᴜᴛᴛᴏɴ Exᴘɪʀᴇᴅ Pʟᴇᴀsᴇ Rᴇǫᴜᴇsᴛ Aɢᴀɪɴ 🙂", show_alert=True)
+        return await query.answer("You are clicking on an old button which is expired.", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer('𝙲𝙷𝙴𝙲𝙺𝙸𝙽𝙶 𝙵𝙸𝙻𝙴 𝙾𝙽 𝙼𝚈 𝙳𝙰𝚃𝙰𝙱𝙰𝚂𝙴...')
+    await query.answer('🔍 ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ.. ꜰɪɴᴅɪɴɢ!...', show_alert=True)
     k = await manual_filters(bot, query.message, text=movie)
     if k == False:
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
@@ -143,8 +143,8 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('𝚃𝙷𝙸𝚂 𝙼𝙾𝚅𝙸𝙴 I𝚂 𝙽𝙾𝚃 𝚈𝙴𝚃 𝚁𝙴𝙻𝙴𝙰𝚂𝙴𝙳 𝙾𝚁 𝙰𝙳𝙳𝙴𝙳 𝚃𝙾 𝙳𝙰𝚃𝚂𝙱𝙰𝚂𝙴 💌')
-            await asyncio.sleep(10)
+            k = await query.message.edit('<b>📕 ᴘʟᴇᴀꜱᴇ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ👉 <a href=https://t.me/UrvashiTheaters_Requests>◥ʊʀʋǟֆɦɨ ȶɦɛǟȶɛʀֆ◤</a>ᴛᴏ ᴀᴅᴅ ᴛʜɪꜱ ᴍᴏᴠɪᴇ🤝</b>')
+            await asyncio.sleep(20)
             await k.delete()
 
 
@@ -801,7 +801,6 @@ async def auto_filter(client, msg, spoll=False):
     await sree.delete()
 
 async def advantage_spell_chok(msg):
-   async def advantage_spell_chok(msg):
     query = re.sub(
         r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)",
         "", msg.text, flags=re.IGNORECASE)  # plis contribute some common words
@@ -811,11 +810,12 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         btn = [[
-            InlineKeyboardButton('ɪɴsᴛʀᴜᴄᴛɪᴏɴ', callback_data='try'),
-            InlineKeyboardButton('ɢᴏᴏɢʟᴇ', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
+            InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')
+            ],[   
+            InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
         k=await msg.reply_text(text=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(40)
+        await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
         return
@@ -845,25 +845,27 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         btn = [[
-            InlineKeyboardButton('ɪɴsᴛʀᴜᴄᴛɪᴏɴ', callback_data='try'),
-            InlineKeyboardButton('ɢᴏᴏɢʟᴇ', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
+            InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')
+            ],[   
+            InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
-        k=await msg.reply_text(text=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(40)
+        k=await msg.reply_photo(photo="https://telegra.ph/file/f5d411fba25ecfa5197fe.jpg",caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
+        await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
         return
-
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
-        InlineKeyboardButton('ɪɴsᴛʀᴜᴄᴛɪᴏɴ', callback_data='try'),
-        InlineKeyboardButton('ɢᴏᴏɢʟᴇ', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
-    ]]        
-    k=await msg.reply_text(text=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
-    await asyncio.sleep(40)
+        InlineKeyboardButton(text=movie.strip(), callback_data=f"spolling#{user}#{k}",)]for k, movie in enumerate(movielist)]
+    btn.append([InlineKeyboardButton(text="✘ ᴍᴜꜱᴛ ᴄʟᴏꜱᴇ ✘", callback_data=f'spolling#{user}#close_spellcheck')])
+    btn.insert(0,
+        [InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')]
+    )
+    k=await msg.reply_photo(photo="https://telegra.ph/file/f5d411fba25ecfa5197fe.jpg", caption="<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക\n✯ അല്ലാത്ത പക്ഷം <u>Instruction</u> ബട്ടനിൽ ക്ലിക്ക് ചെയ്യുക...</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖️➖️➖️\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n✯ ᴏʀ ᴄʟɪᴄᴋ<u>INSTRUCTION</u> ʙᴜᴛᴛᴏɴ\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ </b>",
+                      reply_markup=InlineKeyboardMarkup(btn))
+    await asyncio.sleep(60)
     await k.delete()
     await msg.delete()
-    return
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
