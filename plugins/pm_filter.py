@@ -41,14 +41,14 @@ async def give_filter(client, message):
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer("oKda", show_alert=True)
+        return await query.answer('ᴅᴏɴᴛ ᴄʟɪᴄᴋ ᴏᴛʜᴇʀꜱ ʀᴇQᴜᴇꜱᴛ')
     try:
         offset = int(offset)
     except:
         offset = 0
     search = BUTTONS.get(key)
     if not search:
-        await query.answer("You are using one of my old messages, please send the request again.", show_alert=True)
+        await query.answer('ᴛʜɪꜱ ɪꜱ ᴛᴏᴏ ᴏʟᴅ')
         return
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
@@ -120,14 +120,14 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("okDa", show_alert=True)
+        return await query.answer('ᴅᴏɴᴛ ᴄʟɪᴄᴋ ᴏᴛʜᴇʀꜱ ʀᴇQᴜᴇꜱᴛ')
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
     if not movies:
-        return await query.answer("You are clicking on an old button which is expired.", show_alert=True)
+        return await query.answer('ᴛʜɪꜱ ɪꜱ ᴛᴏᴏ ᴏʟᴅ')
     movie = movies[(int(movie_))]
-    await query.answer('Checking for Movie in database...')
+    await query.answer('ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ 🔍...', show_alert=True)
     k = await manual_filters(bot, query.message, text=movie)
     if k == False:
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
@@ -349,6 +349,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f_caption
         if f_caption is None:
             f_caption = f"{files.file_name}"
+        buttons = [[
+                InlineKeyboardButton('✨️ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ✨️', url=f'https://t.me/{SUPPORT_CHAT}')
+            ]]
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -373,7 +376,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
+            await query.answer("ᴘʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ✔️", show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -393,6 +396,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption = f_caption
         if f_caption is None:
             f_caption = f"{title}"
+        buttons = [[
+                InlineKeyboardButton('✨️ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ✨️', url=f'https://t.me/{SUPPORT_CHAT}')
+            ]]
         await query.answer()
         await client.send_cached_media(
             chat_id=query.from_user.id,
@@ -402,20 +408,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "pages":
         await query.answer()
-    elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-        ], [
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
-        ], [
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
+    elif query.data == "start": 
         await query.message.edit_text(
             text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
-            reply_markup=reply_markup,
             parse_mode='html'
         )
         await query.answer('Piracy Is Crime')
