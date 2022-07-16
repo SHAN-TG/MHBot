@@ -21,6 +21,9 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
+
+SPELL_TXT = '<b>Choose a Language bro , from given below</b>'
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -856,11 +859,10 @@ async def advantage_spell_chok(msg):
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
-        InlineKeyboardButton('Google🔍', callback_data=f"spolling#{user}#{k}",)]for k, movie in enumerate(movielist)]
-    btn.append([InlineKeyboardButton(text="✘ ᴍᴜꜱᴛ ᴄʟᴏꜱᴇ ✘", callback_data=f'spolling#{user}#close_spellcheck')])
-    btn.insert(0,
-        [InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')]
-    )
+            InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')
+            ],[   
+            InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
+        ]]
     k=await msg.reply_sticker(sticker="CAACAgUAAxkBAAEFSmFi0krJtlv7e3KJ1jNgNYECZqCOzgACnQIAAidd4VQhDKpUqniOjikE",
                       reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(10)
