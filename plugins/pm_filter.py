@@ -148,7 +148,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit('<b>📕 ᴘʟᴇᴀꜱᴇ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ👉 <a href=https://t.me/UrvashiTheaters_Requests>◥ʊʀʋǟֆɦɨ ȶɦɛǟȶɛʀֆ◤</a>ᴛᴏ ᴀᴅᴅ ᴛʜɪꜱ ᴍᴏᴠɪᴇ🤝</b>')
-            await asyncio.sleep(20)
+            await asyncio.sleep(10)
             await k.delete()
 
 
@@ -809,7 +809,7 @@ async def auto_filter(client, msg, spoll=False):
     if spoll:
         sree = await msg.message.delete() 
   
-    await asyncio.sleep(60)
+    await asyncio.sleep(300)
     await sree.delete()
 
 async def advantage_spell_chok(msg):
@@ -827,7 +827,7 @@ async def advantage_spell_chok(msg):
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
         k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(20)
+        await asyncio.sleep(10)
         await k.delete()
         await msg.delete()
         return
@@ -862,7 +862,7 @@ async def advantage_spell_chok(msg):
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
         k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(20)
+        await asyncio.sleep(10)
         await k.delete()
         await msg.delete()
         return
@@ -874,7 +874,7 @@ async def advantage_spell_chok(msg):
         ]]
     k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT,
                       reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(60)
+    await asyncio.sleep(10)
     await k.delete()
     await msg.delete()
 
