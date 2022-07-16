@@ -442,14 +442,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "try":
         btn = [[
-            InlineKeyboardButton('ɪɴsᴛʀᴜᴄᴛɪᴏɴ', 'dupe')
+            InlineKeyboardButton('ʙᴀᴄᴋ', 'true')
         ],[
             InlineKeyboardButton('ᴍᴀʟ', callback_data='mal'),
             InlineKeyboardButton('ᴛᴀᴍ', callback_data='tml'),
             InlineKeyboardButton('ᴇɴɢ', callback_data='eng'),
             InlineKeyboardButton('ʜɴᴅ', callback_data='hnd')
-        ],[
-            InlineKeyboardButton('ʙᴀᴄᴋ' callback_data='true')
         ]]
         await query.message.edit_text(SPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))
 
