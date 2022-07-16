@@ -22,7 +22,7 @@ from database.filters_mdb import (
     get_filters,
 )
 
-SPELL_TXT = '<b>Choose a Language bro , from given below</b>'
+SPELL_TXT = '<b>🤝 ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ʟᴀɴɢᴜᴀɢᴇ ᴀɴᴅ ʀᴇᴀᴅ ᴛʜᴇ ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ..👇\n\n🤝 ᴏʀ ꜱᴇᴀʀᴄʜ ɪᴛ ᴏɴ ɢᴏᴏɢʟᴇ ᴜꜱɪɴɢ ᴛʜᴇ ɢᴏᴏɢʟᴇ ʙᴜᴛᴛᴏɴ\n\n🤝 ᴏʀ ʀᴇQᴜᴇꜱᴛ ʜᴇʀᴇ 👉 <a href=https://t.me/UrvashiTheaters_Requests>◥ʊʀʋǟֆɦɨ ȶɦɛǟȶɛʀֆ◤</a></b>'
 
 import logging
 
@@ -448,9 +448,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴛᴀᴍ', callback_data='tml'),
             InlineKeyboardButton('ᴇɴɢ', callback_data='eng'),
             InlineKeyboardButton('ʜɴᴅ', callback_data='hnd')
+        ],[
+            InlineKeyboardButton('ʙᴀᴄᴋ' callback_data='true')
         ]]
         await query.message.edit_text(SPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))
-        
+
+    elif query.data == "true":
+        btn = [[
+            InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')
+            ],[   
+            InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
+        ]]
+        await query.message.edit_text(SPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))
+         
     elif query.data == "about_menu":
         buttons = [[
             InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria'),
