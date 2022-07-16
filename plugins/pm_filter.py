@@ -128,14 +128,14 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("Not For You 😒", show_alert=True)
+        return await query.answer("ᴄʟɪᴄᴋ ʏᴏᴜʀ ʙᴜᴛᴛᴏɴ😒", show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
     if not movies:
-        return await query.answer("You are clicking on an old button which is expired.", show_alert=True)
+        return await query.answer("ᴛʜɪꜱ ɪꜱ ᴛᴏᴏ ᴏʟᴅ.", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer('🔍 ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ.. ꜰɪɴᴅɪɴɢ!...', show_alert=True)
+    await query.answer('🔍 ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...', show_alert=True)
     k = await manual_filters(bot, query.message, text=movie)
     if k == False:
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
@@ -849,21 +849,21 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
-        k=await msg.reply_photo(photo="https://telegra.ph/file/f5d411fba25ecfa5197fe.jpg",caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
+        k=await msg.reply_sticker(sticker="CAACAgUAAxkBAAEFSmFi0krJtlv7e3KJ1jNgNYECZqCOzgACnQIAAidd4VQhDKpUqniOjikE", reply_markup=InlineKeyboardMarkup(btn))    
         await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
         return
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
-        InlineKeyboardButton(text=movie.strip(), callback_data=f"spolling#{user}#{k}",)]for k, movie in enumerate(movielist)]
+        InlineKeyboardButton(text=Google🔍, url=f'https://google.com/search?q={msg.text.replace(" ", "+")}']
     btn.append([InlineKeyboardButton(text="✘ ᴍᴜꜱᴛ ᴄʟᴏꜱᴇ ✘", callback_data=f'spolling#{user}#close_spellcheck')])
     btn.insert(0,
         [InlineKeyboardButton('📕 ɪɴsᴛʀᴜᴄᴛɪᴏɴ 📕', callback_data='try')]
     )
-    k=await msg.reply_photo(photo="https://telegra.ph/file/f5d411fba25ecfa5197fe.jpg", caption="<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക\n✯ അല്ലാത്ത പക്ഷം <u>Instruction</u> ബട്ടനിൽ ക്ലിക്ക് ചെയ്യുക...</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖️➖️➖️\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n✯ ᴏʀ ᴄʟɪᴄᴋ<u>INSTRUCTION</u> ʙᴜᴛᴛᴏɴ\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ </b>",
+    k=await msg.reply_sticker(sticker="CAACAgUAAxkBAAEFSmFi0krJtlv7e3KJ1jNgNYECZqCOzgACnQIAAidd4VQhDKpUqniOjikE",
                       reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(60)
+    await asyncio.sleep(10)
     await k.delete()
     await msg.delete()
 
