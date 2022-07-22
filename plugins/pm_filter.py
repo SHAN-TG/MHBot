@@ -22,7 +22,7 @@ from database.filters_mdb import (
     get_filters,
 )
 
-SPELL_TXT = '<b>🤝 ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ʟᴀɴɢᴜᴀɢᴇ ᴀɴᴅ ʀᴇᴀᴅ ᴛʜᴇ ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ..👇\n\n🤝 ᴏʀ ꜱᴇᴀʀᴄʜ ɪᴛ ᴏɴ ɢᴏᴏɢʟᴇ ᴜꜱɪɴɢ ᴛʜᴇ ɢᴏᴏɢʟᴇ ʙᴜᴛᴛᴏɴ\n\n🤝 ᴏʀ ʀᴇQᴜᴇꜱᴛ ʜᴇʀᴇ 👉 <a href=https://t.me/UrvashiTheaters_Requests>◥ʊʀʋǟֆɦɨ ȶɦɛǟȶɛʀֆ◤</a></b>'
+SPELL_TXT = '<b>🤝 ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ʟᴀɴɢᴜᴀɢᴇ ᴀɴᴅ ʀᴇᴀᴅ ᴛʜᴇ ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ..👇\n\n🤝 ᴏʀ ꜱᴇᴀʀᴄʜ ɪᴛ ᴏɴ ɢᴏᴏɢʟᴇ ᴜꜱɪɴɢ ᴛʜᴇ ɢᴏᴏɢʟᴇ ʙᴜᴛᴛᴏɴ\n\n🤝 ᴏʀ ʀᴇQᴜᴇꜱᴛ ʜᴇʀᴇ 👉 <a href=https://t.me/tomman_requests>◥ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ◤</a></b>'
 ENGLISHSPELL_TXT = f"<b>𝖲ᴏʀʀʏ 𝖭ᴏ 𝖥ɪʟᴇ𝗌 𝖶ᴇʀᴇ 𝖥ᴏᴜɴᴅ.\n\n𝖢ʜᴇᴄᴋ 𝖸ᴏᴜʀ 𝖲ᴘᴇʟʟɪɴɢ ɪɴ 𝖦ᴏᴏɢʟᴇ ᴀɴᴅ 𝖳ʀʏ 𝖠ɢᴀɪɴ. ♻️\n\n𝖱ᴇᴀᴅ 𝖨ɴ𝗌ᴛʀᴜᴄᴛɪᴏɴ𝗌 ғᴏʀ ʙᴇᴛᴛᴇʀ 𝖱ᴇ𝗌ᴜʟᴛ𝗌 👇🏻</b>"
 
 import logging
@@ -147,7 +147,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('<b>📕 ᴘʟᴇᴀꜱᴇ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ👉 <a href=https://t.me/UrvashiTheaters_Requests>◥ʊʀʋǟֆɦɨ ȶɦɛǟȶɛʀֆ◤</a>ᴛᴏ ᴀᴅᴅ ᴛʜɪꜱ ᴍᴏᴠɪᴇ🤝</b>')
+            k = await query.message.edit('<b>📕 ᴘʟᴇᴀꜱᴇ ᴍᴇꜱꜱᴀɢᴇ ʜᴇʀᴇ👉 <a href=https://t.me/tomman_requests>◥ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ◤</a>ᴛᴏ ᴀᴅᴅ ᴛʜɪꜱ ᴍᴏᴠɪᴇ🤝</b>')
             await asyncio.sleep(10)
             await k.delete()
 
