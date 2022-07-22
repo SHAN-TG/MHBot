@@ -89,7 +89,7 @@ async def next_page(bot, query):
 
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ꜰɪʟᴇꜱ-{total_results}', 'gxneopm'),
+            InlineKeyboardButton(f'ꜰɪʟᴇꜱ-{len_files}', 'gxneopm'),
             InlineKeyboardButton(f'ᴍᴏᴠɪᴇ ', 'movss'),
             InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ', 'moviis')
         ]
