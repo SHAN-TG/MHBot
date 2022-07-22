@@ -86,6 +86,11 @@
             "value": "True",
             "required": false
         },
+        "PROTECT_CONTENT": {
+            "description": "Content private",
+            "value": "True",
+            "required": false
+        },
         "IMDB_TEMPLATE": {
             "description": "customise template",
             "value": "True",
