@@ -81,6 +81,11 @@
             "value": "True",
             "required": false
         },
+        "PUBLIC_FILE_STORE": {
+            "description": "imdb or auto",
+            "value": "False",
+            "required": false
+        },
         "IMDB": {
             "description": "imdb or auto",
             "value": "True",
