@@ -89,7 +89,7 @@ async def next_page(bot, query):
 
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ꜰɪʟᴇꜱ-{len(files)}', 'gxneopm'),
+            InlineKeyboardButton(f'ꜰɪʟᴇꜱ-{total_results}', 'gxneopm'),
             InlineKeyboardButton(f'ᴍᴏᴠɪᴇ ', 'movss'),
             InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ', 'moviis')
         ]
@@ -739,7 +739,7 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'ꜰɪʟᴇꜱ-{len(files)}', 'gxneopm'),
+            InlineKeyboardButton(f'ꜰɪʟᴇꜱ-{total_results}', 'gxneopm'),
             InlineKeyboardButton(f'ᴍᴏᴠɪᴇ', 'movss'),
             InlineKeyboardButton(f'ꜱᴇʀɪᴇꜱ', 'moviis')
         ]
