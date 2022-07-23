@@ -861,6 +861,7 @@ async def advantage_spell_chok(msg):
     reply = search.replace(" ", "+")
     reply_markup = InlineKeyboardMarkup([[
      InlineKeyboardButton("🔮IMDB🔮", url=f"https://imdb.com/find?q={reply}"),
+     InlineKeyboardButton("movie.strip()", callback_data=f"spolling#{user}#{k}"),
      InlineKeyboardButton("🪐 Reason", callback_data="reason"),     
      ]]
     )    
