@@ -23,12 +23,6 @@ from database.filters_mdb import (
 )
 
 
-IMDB_MOVIE_2 = """
-🎬 Title : [{title}]({url})
-🎭 Genre : {genres}
-📆 Release : {year}
-📕 Short Info : {short}
-"""
 SPELL_TXT = '<b>🤝 ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ʟᴀɴɢᴜᴀɢᴇ ᴀɴᴅ ʀᴇᴀᴅ ᴛʜᴇ ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ..👇\n\n🤝 ᴏʀ ꜱᴇᴀʀᴄʜ ɪᴛ ᴏɴ ɢᴏᴏɢʟᴇ ᴜꜱɪɴɢ ᴛʜᴇ ɢᴏᴏɢʟᴇ ʙᴜᴛᴛᴏɴ\n\n🤝 ᴏʀ ʀᴇQᴜᴇꜱᴛ ʜᴇʀᴇ 👉 <a href=https://t.me/tomman_requests>◥ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ◤</a></b>'
 ENGLISHSPELL_TXT = f"<b>𝖲ᴏʀʀʏ 𝖭ᴏ 𝖥ɪʟᴇ𝗌 𝖶ᴇʀᴇ 𝖥ᴏᴜɴᴅ.\n\n𝖢ʜᴇᴄᴋ 𝖸ᴏᴜʀ 𝖲ᴘᴇʟʟɪɴɢ ɪɴ 𝖦ᴏᴏɢʟᴇ ᴀɴᴅ 𝖳ʀʏ 𝖠ɢᴀɪɴ. ♻️\n\n𝖱ᴇᴀᴅ 𝖨ɴ𝗌ᴛʀᴜᴄᴛɪᴏɴ𝗌 ғᴏʀ ʙᴇᴛᴛᴇʀ 𝖱ᴇ𝗌ᴜʟᴛ𝗌 👇🏻</b>"
 
@@ -872,7 +866,7 @@ async def advantage_spell_chok(msg):
     )    
     imdb=await get_poster(search)
     if imdb and imdb.get('poster'):
-        await msg.reply_photo(photo=imdb.get('poster'), caption=IMDB_MOVIE_2(mention=msg.from_user.mention, query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), url=imdb['url'], short=imdb['plot']), reply_markup=reply_markup) 
+        await msg.reply_photo(photo=imdb.get('poster'), caption=script.IMDB_MOVIE_2.format(mention=msg.from_user.mention, query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), url=imdb['url'], short=imdb['plot']), reply_markup=reply_markup) 
         return
 
 async def manual_filters(client, message, text=False):
