@@ -175,10 +175,7 @@ Added By - {}
     IMDB_MOVIE_2 = """
 🧿 ᴛɪᴛᴛʟᴇ :  <a href={url}>{title}</a>
 🎭 ɢᴇɴʀᴇ : {genres}
-
 📆 ʀᴇʟᴇᴀsᴇ : {year}
-
-🔖 sʜᴏʀᴛ : {plot}
 
 ★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [@ᴜʀᴠᴀꜱʜɪ ᴛʜᴇᴀᴛᴇʀꜱ™](https://t.me/UrvashiTheatersSub)</b>
 """
