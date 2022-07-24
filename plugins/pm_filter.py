@@ -810,14 +810,11 @@ async def auto_filter(client, msg, spoll=False):
     if spoll:
         sree = await msg.message.delete() 
   
-    await asyncio.sleep(180)
-    await sree.delete() 
- 
+    await asyncio.sleep(60)
+    await fmsg.delete()
 
 async def advantage_spell_chok(msg):
-    search = msg.text
     query = re.sub(
-       query = re.sub(
         r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)",
         "", msg.text, flags=re.IGNORECASE)  # plis contribute some common words
     query = query.strip() + " movie"
@@ -830,8 +827,8 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
-        k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(10)
+        k=await msg.reply_text(text=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
+        await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
         return
@@ -865,8 +862,8 @@ async def advantage_spell_chok(msg):
             ],[   
             InlineKeyboardButton('🔍 ꜱᴇᴀʀᴄʜ ɢᴏᴏɢʟᴇ 🔍', url=f'https://google.com/search?q={msg.text.replace(" ", "+")}')
         ]]        
-        k=await msg.reply_photo(photo="https://telegra.ph/file/9f7470a5844a4045c320b.jpg", caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
-        await asyncio.sleep(10)
+        k=await msg.reply_photo(photo="https://telegra.ph/file/f5d411fba25ecfa5197fe.jpg",caption=script.ENGLISHSPELL_TXT, reply_markup=InlineKeyboardMarkup(btn))    
+        await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
         return
@@ -879,9 +876,11 @@ async def advantage_spell_chok(msg):
     )
     k=await msg.reply_photo(photo="https://telegra.ph/file/f5d411fba25ecfa5197fe.jpg", caption="<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക\n✯ അല്ലാത്ത പക്ഷം <u>Instruction</u> ബട്ടനിൽ ക്ലിക്ക് ചെയ്യുക...</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖️➖️➖️\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n✯ ᴏʀ ᴄʟɪᴄᴋ<u>INSTRUCTION</u> ʙᴜᴛᴛᴏɴ\n\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ </b>",
                       reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(30)
+    await asyncio.sleep(60)
     await k.delete()
     await msg.delete()
+                    
+
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
