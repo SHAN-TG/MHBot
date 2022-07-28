@@ -108,6 +108,9 @@ async def next_page(bot, query):
              InlineKeyboardButton(f"⎙ᴘᴀɢᴇ{math.ceil(int(offset) / 10) + 1}-{math.ceil(total / 10)}",
                                   callback_data="pages")]
         )
+        btn.insert(0,
+            [InlineKeyboardButton(f"۞ {search} ۞",callback_data="neosub")]
+        )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"⎙ᴘᴀɢᴇ{math.ceil(int(offset) / 10) + 1}-{math.ceil(total / 10)}", callback_data="pages"),
@@ -119,6 +122,9 @@ async def next_page(bot, query):
                 InlineKeyboardButton(f"⎙ᴘᴀɢᴇ{math.ceil(int(offset) / 10) + 1}-{math.ceil(total / 10)}", callback_data="pages"),
                 InlineKeyboardButton("ɴᴇxᴛ➪", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
+        )
+        btn.insert(0,
+            [InlineKeyboardButton(f"۞ {search} ۞",callback_data="neosub")]
         )
     try:
         await query.edit_message_reply_markup(
@@ -478,6 +484,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "gxneopm":
         await query.answer("ᴅᴏɴᴛ ᴜꜱᴇ ᴛʜɪꜱ ʙʀᴏ!", show_alert=True)
 
+    elif query.data == "neosub":
+        await query.answer("☞ 𝙼𝚘𝚟𝚒𝚎 𝙽𝚊𝚖𝚎 : \n☞ 𝚁𝙰𝚃𝙸𝙽𝙶 : \n☞ 𝚈𝚎𝚊𝚛 : \n☞ 𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 :", show_alert=True)
+
     elif query.data == "movieinfo":
         await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 3 ᴍɪɴᴜᴛᴇ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n© ᴜʀᴠᴀꜱʜɪ ᴛʜᴇᴀᴛᴇʀꜱ", show_alert=True)
 
@@ -746,6 +755,7 @@ async def auto_filter(client, msg, spoll=False):
         ]
     )
 
+
     if offset != "":
         key = f"{message.chat.id}-{message.message_id}"
         BUTTONS[key] = search
@@ -754,9 +764,15 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text=f"⎙ᴘᴀɢᴇ 1-{math.ceil(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="ɴᴇxᴛ➪", callback_data=f"next_{req}_{key}_{offset}")]
         )
+        btn.insert(0,
+            [InlineKeyboardButton(f"۞ {search} ۞",callback_data="neosub")]
+        )
     else:
         btn.append(
             [InlineKeyboardButton(text="⎙ᴘᴀɢᴇ 1-1", callback_data="pages")]
+        )
+        btn.insert(0,
+            [InlineKeyboardButton(f"۞ {search} ۞",callback_data="neosub")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
